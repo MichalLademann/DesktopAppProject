@@ -1,18 +1,17 @@
 using System;
 using System.Windows.Forms;
+using TaskManagerDesktop.Data;
 
-namespace DesktopAppProject
+namespace TaskManagerDesktop
 {
     internal static class Program
     {
         [STAThread]
         static void Main()
         {
-            // klasyczna inicjalizacja WinForms
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            Application.Run(new Form1());
+            ApplicationConfiguration.Initialize();
+            DatabaseHelper.InitializeDatabase();
+            Application.Run(new Forms.MainForm());
         }
     }
 }
